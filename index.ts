@@ -10,7 +10,7 @@ Bun.serve({
   port: PORT,
   async fetch(req) {
     const url = new URL(req.url);
-    if (url.pathname === "/pdf") {
+    if (url.pathname === "/pdf" && req.method === "POST") {
       try{
         let buffer = await getsupabasefile();
         if(buffer){
